@@ -7,7 +7,7 @@ import { infoRouter } from "./info.router";
 import { authRouter } from "./auth.router";
 import { productsRouter } from "./products.router";
 import { messagesRouter } from "./messages.router";
-import { warningLogger } from "../logger/logger";
+import { warningLogger } from "../services/logger.service";
 
 
 

@@ -45,19 +45,14 @@ if(args.m.toUpperCase() == "CLUSTER" && cluster.isPrimary) {
     app.use(express.json());
     app.use(express.urlencoded({extended: true}));
     app.use(express.static(path.join(__dirname, 'public')));
-    app.use((req :any, res :any, next :any) => {
-        logger.info({
-            message: "Request",
-            url: req.url,
-            method: req.method
-        })
-        next();
-    })
-
+    app.use((req :any, res :any, next :any) => {logger.info({message: "Request",url: req.url,method: req.method}); next();});
     const TEMPLATEFOLDER = path.join(__dirname, "public/templates");
     app.engine("handlebars", engine())
     app.set("views", TEMPLATEFOLDER)
     app.set("view engine", "handlebars")
+
+
+
     const createHash = (password :string) => {
         const hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
         return hash;

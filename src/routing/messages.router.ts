@@ -1,5 +1,5 @@
 import express, {Request, Response} from "express";
-import { errorLogger } from "../logger/logger";
+import { errorLogger } from "../services/logger.service";
 import * as messageManager from "../persistence/managers/messageDbManager";
 
 const router = express.Router();

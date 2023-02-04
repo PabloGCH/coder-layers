@@ -1,6 +1,6 @@
 import express from "express";
 import * as productDbManager from "../persistence/managers/productsDbManager";
-import { errorLogger } from "../logger/logger";
+import { errorLogger } from "../services/logger.service";
 
 const router = express.Router();
 
