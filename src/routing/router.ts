@@ -8,26 +8,12 @@ import {fork} from "child_process";
 import passport from "passport";
 import bcrypt from "bcrypt";
 import compression from "compression";
-import log4js from "log4js";
 import { siteRouter } from "./site.router";
+import { numbersRouter } from "./numbers.router";
 
 
 const NUMBEROFCORES = os.cpus().length;
-const logger = log4js.getLogger("default");
-const warningLogger = log4js.getLogger("warnings");
-const errorLogger = log4js.getLogger("errors");
-log4js.configure({
-    appenders: {
-        console: {type: "console"},
-        warnLogFile: {type: "file", filename: "logs/warn.log"},
-        errorLogFile: {type: "file", filename: "logs/error.log"}
-    },
-    categories: {
-        default: { appenders: ["console"], level: "trace"},
-        errors: { appenders: ["console", "errorLogFile"], level: "error"},
-        warnings: { appenders: ["console" , "warnLogFile"], level: "warn"}
-    }
-})
+
 
 export class RouterManager{
     private router :Router = express.Router();
@@ -41,6 +27,7 @@ export class RouterManager{
     }
     private loadRoutes() :void {
         this.router.use("/site", siteRouter);
+        this.router.use("/numbers", numbersRouter)
         this.router.get("/", (req :any, res :any) => {
             res.redirect("/site/")
         })
@@ -63,49 +50,7 @@ export class RouterManager{
             res.send(serverData);
         })
 
-        this.router.get("/info", (req:any, res :any) => {
-            if(req.session.user == undefined){
-                res.redirect("/login")
-            } else {
-                res.cookie("username", req.session.user.username)
-                res.sendFile("public/client/index.html", {root: __dirname})
-            }
-        });
 
-        this.router.get("/randoms", (req:any, res :any) => {
-            const randNumProcess = fork("../services/child-process/randomNumbers.ts");
-            const cant = req.query.cant;
-            randNumProcess.send(cant||100000000);
-            randNumProcess.on("message", (data) => {
-                return res.send(data);
-            })
-        });
-
-        this.router.get("/stock", (req :any, res :any) => {
-            if(req.session.user == undefined){
-                res.redirect("/login")
-            } else {
-                res.cookie("username", req.session.user.username)
-                res.sendFile("public/client/index.html", {root: __dirname})
-            }
-        })
-        this.router.get("/form", (req :any, res :any) => {
-            if(req.session.user == undefined){
-                res.redirect("/login")
-            } else {
-
-                res.cookie("username", req.session.user.username)
-                res.sendFile("public/client/index.html", {root: __dirname})
-            }
-        })
-        this.router.get("/chat", (req :any, res :any) => {
-            if(req.session.user == undefined){
-                res.redirect("/login")
-            } else {
-                res.cookie("username", req.session.user.username)
-                res.sendFile("public/client/index.html", {root: __dirname})
-            }
-        })
 
 
         this.router.post("/register", passport.authenticate("signupStrategy", {
