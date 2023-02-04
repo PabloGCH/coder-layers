@@ -8,7 +8,6 @@ const randomNum = (cant :number) => {
 	return numbers;
 }
 
-
 process.on("message", (data:string) => {
 	if(process.send) {
 		let cant = parseInt(data);

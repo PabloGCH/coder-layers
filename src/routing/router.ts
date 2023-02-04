@@ -1,9 +1,9 @@
 import express, { Request, Response } from "express";
 import { Socket, Server as SocketServer} from "socket.io";
-import { ProductDbManager } from "./managers/productsDbManager";
-import { MessageDbManager } from "./managers/messageDbManager";
+import * as productDbManager from "../persistence/managers/productsDbManager";
+import * as messageManager from "../persistence/managers/messageDbManager";
 //import HttpServer from "http";
-import { UserModel } from "./schemas/user";
+import { UserModel } from "../persistence/schemas/user";
 import MongoStore from "connect-mongo";
 import {engine} from "express-handlebars";
 import session from "express-session";
@@ -52,8 +52,6 @@ export const loadRoutes = ({app, args, NUMBEROFCORES} :any) => {
 	const server = app.listen(args.p, ()=>{console.log(`server listening on port ${args.p}`)});
 	const io = new SocketServer(server)
 	const TEMPLATEFOLDER = path.join(__dirname, "public/templates");
-	const container = new ProductDbManager("products.json");
-	const messageManager = new MessageDbManager("message-history.json");
 	app.engine("handlebars", engine())
 	app.set("views", TEMPLATEFOLDER)
 	app.set("view engine", "handlebars")
@@ -141,7 +139,7 @@ export const loadRoutes = ({app, args, NUMBEROFCORES} :any) => {
 	});
 
 	app.get("/randoms", (req:any, res :any) => {
-		const randNumProcess = fork("./src/child-process/randomNumbers.ts");
+		const randNumProcess = fork("../services/child-process/randomNumbers.ts");
 		const cant = req.query.cant;
 		randNumProcess.send(cant||100000000);
 		randNumProcess.on("message", (data) => {
@@ -277,8 +275,8 @@ export const loadRoutes = ({app, args, NUMBEROFCORES} :any) => {
 			} else {
 				let product = req.body;
 				Object.assign(product, {price: parseInt(product.price)});
-				container.save(product).then(() => {
-					container.getAll().then(products => {
+				productDbManager.save(product).then(() => {
+					productDbManager.getAll().then(products => {
 						io.sockets.emit("products", {products: products})
 						res.send({success: true})
 					})
@@ -321,7 +319,7 @@ export const loadRoutes = ({app, args, NUMBEROFCORES} :any) => {
 
 	//WEBSOCKETS
 	io.on("connection", (socket :Socket) => {
-		container.getAll().then(products => {
+		productDbManager.getAll().then(products => {
 			socket.emit("products", {products: products})
 		})
 		messageManager.getAll().then(messages => {

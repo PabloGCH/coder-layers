@@ -35,3 +35,14 @@
   url: '/class=%22table-img%22',
   method: 'GET'
 }
+[2023-02-03T20:49:37.944] [WARN] warnings - { message: 'Route not found', url: '/favicon.ico', method: 'GET' }
+[2023-02-03T20:51:23.388] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/class=%22table-img%22',
+  method: 'GET'
+}
+[2023-02-03T20:52:04.510] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/class=%22table-img%22',
+  method: 'GET'
+}

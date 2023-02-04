@@ -1,7 +1,7 @@
 //BASE DE DATOS
 import knex, { Knex } from "knex";
-import {sqloptions} from "../options/mysqlconfig";
-import {sqliteconfig} from "../options/sqliteconfig";
+import {sqloptions} from "../config/mysqlconfig";
+import {sqliteconfig} from "../config/sqliteconfig";
 
 export class DbManager {
 	private tableName:string;
