@@ -53,6 +53,6 @@ router.get("/info", (req:any, res :any) => {
     }
 });
 router.get("/*", (req :any, res :any) => {
-    res.redirect("login")
+    res.redirect("/site/login")
 });
 export {router as siteRouter};

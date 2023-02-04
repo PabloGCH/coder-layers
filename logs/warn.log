@@ -208,3 +208,12 @@
 [2023-02-04T03:02:47.048] [WARN] warnings - { message: 'Route not found', url: '/server-info', method: 'GET' }
 [2023-02-04T03:03:10.095] [WARN] warnings - { message: 'Route not found', url: '/server-info', method: 'GET' }
 [2023-02-04T03:03:30.896] [WARN] warnings - { message: 'Route not found', url: '/server-info', method: 'GET' }
+[2023-02-04T03:24:58.259] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T03:24:59.700] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T03:25:08.099] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T03:25:38.794] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T03:25:40.391] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T03:26:13.144] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T03:32:16.024] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T03:33:10.075] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T03:33:32.503] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
