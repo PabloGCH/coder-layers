@@ -178,44 +178,44 @@ const logSubmit = () => {
 
 
 //ROUTES
-if(window.location.pathname == "/stock") {
+if(window.location.pathname.includes("/stock")) {
 	socket.on("products", data => {
 		productTable(data).then(res => {
 			content.innerHTML = res;
 		})
 	})
 }
-if(window.location.pathname == "/form") {
+if(window.location.pathname.includes("/form")) {
 	productForm().then(res => {
 		content.innerHTML = res;
 	})
 }
-if(window.location.pathname == "/login") {
+if(window.location.pathname.includes("/login")) {
 	loginForm().then(res => {
 		content.innerHTML = res;
 	})
 }
-if(window.location.pathname == "/regerror") {
+if(window.location.pathname.includes("/regerror")) {
 	regError().then(res => {
 		content.innerHTML = res;
 	})
 }
-if(window.location.pathname == "/logerror") {
+if(window.location.pathname.includes("/logerror")) {
 	logError().then(res => {
 		content.innerHTML = res;
 	})
 }
-if(window.location.pathname == "/register") {
+if(window.location.pathname.includes("/register")) {
 	registerForm().then(res => {
 		content.innerHTML = res;
 	})
 }
-if(window.location.pathname == "/info") {
+if(window.location.pathname.includes("/info")) {
 	serverInfo().then(res => {
 		content.innerHTML = res;
 	})
 }
-if(window.location.pathname == "/chat") {
+if(window.location.pathname.includes("/chat")) {
 	socket.on("messages", data => {
 		chatSection(data, currentUserEmail).then(res => {
 			content.innerHTML = res;

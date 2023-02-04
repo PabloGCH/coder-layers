@@ -46,3 +46,150 @@
   url: '/class=%22table-img%22',
   method: 'GET'
 }
+[2023-02-04T00:02:39.704] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:02:39.718] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:03:15.147] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:03:15.177] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:03:26.029] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:03:26.053] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:03:29.071] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:03:32.369] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:03:32.451] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:04:35.944] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:04:35.984] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:05:29.977] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:05:29.993] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:06:34.601] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:06:34.703] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:07:26.280] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:07:26.304] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:08:45.951] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:08:45.999] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:08:52.704] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:08:52.743] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:09:22.087] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:09:22.111] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:12:37.163] [WARN] warnings - { message: 'Route not found', url: '/client/login', method: 'GET' }
+[2023-02-04T00:13:47.756] [WARN] warnings - { message: 'Route not found', url: '/client/login', method: 'GET' }
+[2023-02-04T00:13:52.751] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:13:52.785] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:14:43.937] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:14:44.001] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
+[2023-02-04T00:15:10.512] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/styles/index.css',
+  method: 'GET'
+}
+[2023-02-04T00:15:10.540] [WARN] warnings - {
+  message: 'Route not found',
+  url: '/client/client/index.js',
+  method: 'GET'
+}
