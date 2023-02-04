@@ -7,7 +7,7 @@ class ProductsRouter {
     constructor(
         private io :Server
     ) {
-        this.router.post("/newProduct", newProduct(io));
+        this.router.post("/product", newProduct(io));
     }
     getRouter() {
         return this.router;

@@ -7,7 +7,7 @@ export class MessageRouter {
     constructor(
         private io :Server
     ) {
-        this.router.post("/newMessage", newMessage(io));
+        this.router.post("/message", newMessage(io));
     }
     getRouter() {
         return this.router;

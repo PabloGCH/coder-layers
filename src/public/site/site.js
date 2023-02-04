@@ -30,7 +30,7 @@ const loginForm = async() => {
 	return html;
 }
 const serverInfo = async() => {
-	let serverData = await fetch("/server-info");
+	let serverData = await fetch("/api/info/server");
 	const response = await fetch("../templates/info.handlebars");
 	const result = await response.text();
 	const template = Handlebars.compile(result);
@@ -83,7 +83,7 @@ const productFormSubmit = () => {
 		price: inputs[1].value,
 		imgUrl: inputs[2].value
 	};
-	fetch("/newProduct", {
+	fetch("/api/products/product", {
 		method: "POST",
 		headers: {'Content-Type': 'application/json'},
 		body: JSON.stringify(newProduct)
@@ -118,7 +118,7 @@ const sendMessage = () => {
 		date: date.getDate().toString() + "/" + date.getMonth().toString() + "/" + date.getFullYear().toString() + " - " + date.getHours().toString() + ":" + date.getMinutes().toString() + ":" + date.getSeconds().toString(),
 		message: message
 	}
-	fetch("/newMessage", {
+	fetch("/api/messages/message", {
 		method: "POST",
 		headers: {'Content-Type': 'application/json'},
 		body: JSON.stringify(newMessage)
@@ -139,7 +139,7 @@ const registerSubmit = () => {
 		username: inputs[0].value,
 		password: inputs[1].value
 	};
-	fetch("/register", {
+	fetch("/api/auth/register", {
 		method: "POST",
 		headers: {'Content-Type': 'application/json'},
 		body: JSON.stringify(regData)
@@ -161,7 +161,7 @@ const logSubmit = () => {
 		username: inputs[0].value,
 		password: inputs[1].value,
 	};
-	fetch("/login", {
+	fetch("/api/auth/login", {
 		method: "POST",
 		headers: {'Content-Type': 'application/json'},
 		body: JSON.stringify(logData)
@@ -179,58 +179,67 @@ const logSubmit = () => {
 
 //ROUTES
 if(window.location.pathname.includes("/stock")) {
-	socket.on("products", data => {
-		productTable(data).then(res => {
-			content.innerHTML = res;
-		})
-	})
+    productTable({}).then(res => {
+        content.innerHTML = res;
+    })
+    socket.on("products", data => {
+        productTable(data).then(res => {
+            content.innerHTML = res;
+        })
+    })
 }
 if(window.location.pathname.includes("/form")) {
-	productForm().then(res => {
-		content.innerHTML = res;
-	})
+    productForm().then(res => {
+        content.innerHTML = res;
+    })
 }
 if(window.location.pathname.includes("/login")) {
-	loginForm().then(res => {
-		content.innerHTML = res;
-	})
+    loginForm().then(res => {
+        content.innerHTML = res;
+    })
 }
 if(window.location.pathname.includes("/regerror")) {
-	regError().then(res => {
-		content.innerHTML = res;
-	})
+    regError().then(res => {
+        content.innerHTML = res;
+    })
 }
 if(window.location.pathname.includes("/logerror")) {
-	logError().then(res => {
-		content.innerHTML = res;
-	})
+    logError().then(res => {
+        content.innerHTML = res;
+    })
 }
 if(window.location.pathname.includes("/register")) {
-	registerForm().then(res => {
-		content.innerHTML = res;
-	})
+    registerForm().then(res => {
+        content.innerHTML = res;
+    })
 }
 if(window.location.pathname.includes("/info")) {
-	serverInfo().then(res => {
-		content.innerHTML = res;
-	})
+    serverInfo().then(res => {
+        content.innerHTML = res;
+    })
 }
 if(window.location.pathname.includes("/chat")) {
-	socket.on("messages", data => {
-		chatSection(data, currentUserEmail).then(res => {
-			content.innerHTML = res;
-			document.getElementById("email").value = currentUserEmail;
-			let messageBox = document.getElementById("message-box");
-			messageBox.scrollTop = messageBox.scrollHeight;
-		})
-	})
+    chatSection({}, currentUserEmail).then(res => {
+        content.innerHTML = res;
+        document.getElementById("email").value = currentUserEmail;
+        let messageBox = document.getElementById("message-box");
+        messageBox.scrollTop = messageBox.scrollHeight;
+    })
+    socket.on("messages", data => {
+        chatSection(data, currentUserEmail).then(res => {
+            content.innerHTML = res;
+            document.getElementById("email").value = currentUserEmail;
+            let messageBox = document.getElementById("message-box");
+            messageBox.scrollTop = messageBox.scrollHeight;
+        })
+    })
 }
 
 const logOff = () => {
-	fetch("/logOff", {
-		method: "GET",
-		headers: {'Content-Type': 'application/json'},
-	}).then(res => {
-		window.location.replace("/")
-	})
+    fetch("/api/auth/logoff", {
+        method: "GET",
+        headers: {'Content-Type': 'application/json'},
+    }).then(res => {
+        window.location.replace("/")
+    })
 } 

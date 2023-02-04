@@ -4,55 +4,55 @@ const router = express.Router();
 
 router.get("/login", (req :any, res :any) => {
     if(req.session.user){
-        res.redirect("/stock")
+        res.redirect("stock")
     } else {
         res.sendFile("public/site/site.html", {root: __dirname + "/../"})
     }
 })
 router.get("/register", (req :any,res :any) => {
-    res.sendFile("public/site/site.html", {root: __dirname})
+    res.sendFile("public/site/site.html", {root: __dirname + "/../"})
 });
 router.get("/logerror", (req :any, res :any) => {
-    res.sendFile("public/site/site.html", {root: __dirname})
+    res.sendFile("public/site/site.html", {root: __dirname + "/../"})
 });
 router.get("/regerror", (req :any, res :any) => {
-    res.sendFile("public/site/site.html", {root: __dirname})
+    res.sendFile("public/site/site.html", {root: __dirname + "/../"})
 });
-router.get("/*", (req :any, res :any) => {
-    res.redirect("login")
-});
+
 router.get("/stock", (req :any, res :any) => {
     if(req.session.user == undefined){
-        res.redirect("/login")
+        res.redirect("login")
     } else {
         res.cookie("username", req.session.user.username)
-        res.sendFile("public/site/site.html", {root: __dirname})
+        res.sendFile("public/site/site.html", {root: __dirname + "/../"})
     }
 })
 router.get("/form", (req :any, res :any) => {
     if(req.session.user == undefined){
-        res.redirect("/login")
+        res.redirect("login")
     } else {
 
         res.cookie("username", req.session.user.username)
-        res.sendFile("public/site/site.html", {root: __dirname})
+        res.sendFile("public/site/site.html", {root: __dirname + "/../"})
     }
 })
 router.get("/chat", (req :any, res :any) => {
     if(req.session.user == undefined){
-        res.redirect("/login")
+        res.redirect("login")
     } else {
         res.cookie("username", req.session.user.username)
-        res.sendFile("public/site/site.html", {root: __dirname})
+        res.sendFile("public/site/site.html", {root: __dirname + "/../"})
     }
 })
 router.get("/info", (req:any, res :any) => {
     if(req.session.user == undefined){
-        res.redirect("/login")
+        res.redirect("login")
     } else {
         res.cookie("username", req.session.user.username)
-        res.sendFile("public/site/site.html", {root: __dirname})
+        res.sendFile("public/site/site.html", {root: __dirname + "/../"})
     }
 });
-
+router.get("/*", (req :any, res :any) => {
+    res.redirect("login")
+});
 export {router as siteRouter};

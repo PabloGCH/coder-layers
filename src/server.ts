@@ -21,6 +21,7 @@ import { Socket, Server as SocketServer} from "socket.io";
 import {RouterManager} from "./routing/router";
 import { loadConfig } from "./config/config";
 import { logger } from "./services/logger.service";
+import { startConnectionEvents } from "./services/socket.service";
 
 const NUMBEROFCORES = os.cpus().length;
 const options = {default: {p: 8080, m: "FORK"}, alias:{p:"puerto", m:"mode"}};
@@ -42,8 +43,7 @@ if(args.m.toUpperCase() == "CLUSTER" && cluster.isPrimary) {
 } else {
     if(args.m.toUpperCase() == "FORK") {console.log("Server initialized on fork mode")}
     const app = express();
-    const server = app.listen(args.p, ()=>{console.log(`server listening on port ${args.p}`)});
-    const io = new SocketServer(server)
+
     app.use(express.json());
     app.use(express.urlencoded({extended: true}));
     app.use(express.static(path.join(__dirname, 'public')));
@@ -105,6 +105,9 @@ if(args.m.toUpperCase() == "CLUSTER" && cluster.isPrimary) {
             })
         }
     ));
+    const server = app.listen(args.p, ()=>{console.log(`server listening on port ${args.p}`)});
+    const io = new SocketServer(server)
+    startConnectionEvents(io);
     app.use("/", new RouterManager(io).getRouter());
 }
 

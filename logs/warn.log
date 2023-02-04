@@ -193,3 +193,18 @@
   url: '/client/client/index.js',
   method: 'GET'
 }
+[2023-02-04T02:39:51.803] [WARN] warnings - { message: 'Route not found', url: '/favicon.ico', method: 'GET' }
+[2023-02-04T02:39:57.397] [WARN] warnings - { message: 'Route not found', url: '/register', method: 'GET' }
+[2023-02-04T02:44:11.505] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T02:44:32.958] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T02:44:35.685] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T02:49:33.810] [WARN] warnings - { message: 'Route not found', url: '/register', method: 'GET' }
+[2023-02-04T02:50:07.328] [WARN] warnings - { message: 'Route not found', url: '/register', method: 'GET' }
+[2023-02-04T02:50:26.281] [WARN] warnings - { message: 'Route not found', url: '/register', method: 'GET' }
+[2023-02-04T02:50:36.754] [WARN] warnings - { message: 'Route not found', url: '/register', method: 'GET' }
+[2023-02-04T02:50:39.315] [WARN] warnings - { message: 'Route not found', url: '/register', method: 'GET' }
+[2023-02-04T02:53:26.547] [WARN] warnings - { message: 'Route not found', url: '/login', method: 'GET' }
+[2023-02-04T03:02:18.099] [WARN] warnings - { message: 'Route not found', url: '/server-info', method: 'GET' }
+[2023-02-04T03:02:47.048] [WARN] warnings - { message: 'Route not found', url: '/server-info', method: 'GET' }
+[2023-02-04T03:03:10.095] [WARN] warnings - { message: 'Route not found', url: '/server-info', method: 'GET' }
+[2023-02-04T03:03:30.896] [WARN] warnings - { message: 'Route not found', url: '/server-info', method: 'GET' }

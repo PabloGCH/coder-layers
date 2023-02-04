@@ -3,10 +3,10 @@ import { UserModel } from "../persistence/schemas/user";
 import bcrypt from "bcrypt";
 
 
-export function register(res : Response|any, req : Request|any) {
+export function register(req : Request|any, res : Response|any) {
     res.send({success: req.success || false, message: req.message||""})
 }
-export function logoff(res : Response, req : Request) {
+export function logoff(req : Response | any, res : Response) {
     req.logout((err :any) => {
         if(err) return res.send("failed to close session")
             req.session.destroy((err :any) => {
@@ -15,7 +15,7 @@ export function logoff(res : Response, req : Request) {
             res.redirect("/")
     });
 }
-export function login(res : Response|any, req : Request|any) {
+export function login(req : Request|any, res : Response|any) {
     const body = req.body;
     if(req.session.user) {
         res.send({message:"already logged"})

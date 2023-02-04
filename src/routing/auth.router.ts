@@ -9,7 +9,7 @@ router.post("/register", passport.authenticate("signupStrategy", {
     failureRedirect: "/register",
     failureMessage: true
 }), register);
-router.get("/logOff", logoff)
+router.get("/logoff", logoff)
 router.post("/login", login)
 
 
