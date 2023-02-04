@@ -14,19 +14,21 @@ import passport from "passport";
 import path from "path";
 import {engine} from "express-handlebars";
 import session from "express-session";
-import log4js from "log4js";
 import MongoStore from "connect-mongo";
 import { UserModel } from "./persistence/schemas/user";
 import bcrypt from "bcrypt";
 import { Socket, Server as SocketServer} from "socket.io";
 import {RouterManager} from "./routing/router";
+import { loadConfig } from "./config/config";
+import { logger } from "./services/logger.service";
 
 const NUMBEROFCORES = os.cpus().length;
 const options = {default: {p: 8080, m: "FORK"}, alias:{p:"puerto", m:"mode"}};
 const args = minimist(process.argv.slice(2), options);
 
-//TEMPORARY
-const logger = log4js.getLogger("default");
+
+//LOAD CONFIG FILE
+loadConfig();
 
 if(args.m.toUpperCase() == "CLUSTER" && cluster.isPrimary) {
 	console.log("Server initialized on cluster mode");
@@ -52,12 +54,10 @@ if(args.m.toUpperCase() == "CLUSTER" && cluster.isPrimary) {
     app.set("view engine", "handlebars")
 
 
-
     const createHash = (password :string) => {
         const hash = bcrypt.hashSync(password, bcrypt.genSaltSync(10));
         return hash;
     }
-
     //APP INIT CONF
     app.use(cookieParser());
     app.use(session({
@@ -69,7 +69,6 @@ if(args.m.toUpperCase() == "CLUSTER" && cluster.isPrimary) {
             maxAge: 1000 * 60 * 10 // 1 segundo * 60 * 10 = 10 minutos
         }
     }))
-
     //PASSPORT CONFIGURATION
     app.use(passport.initialize());
     app.use(passport.session());
@@ -106,7 +105,6 @@ if(args.m.toUpperCase() == "CLUSTER" && cluster.isPrimary) {
             })
         }
     ));
-
     app.use("/", new RouterManager(io).getRouter());
 }
 
